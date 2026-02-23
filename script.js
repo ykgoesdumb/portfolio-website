@@ -61,6 +61,16 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(startTerminalAnimation, 500);
         }, 800);
     }, 4000);
+
+    // Form Submission Handler
+    document.addEventListener('submit', (e) => {
+        if (e.target && e.target.id === 'portfolio-contact-form') {
+            e.preventDefault();
+            const isKo = document.body.classList.contains('lang-ko');
+            alert(isKo ? '메시지가 전송되었습니다! 곧 연락드리겠습니다.' : 'Message sent! I will get back to you soon.');
+            e.target.reset();
+        }
+    });
 });
 
 
@@ -71,7 +81,8 @@ const fileTypes = {
     'skills': 'Terraform',
     'projects': 'YAML',
     'certs': 'PEM',
-    'contact': 'Environment Variables'
+    'contact': 'Environment Variables',
+    'contact-form': 'Contact Form'
 };
 
 const fileIcons = {
@@ -79,8 +90,9 @@ const fileIcons = {
     'whoami': '<span class="file-icon sh"><i class="fas fa-terminal"></i></span>',
     'skills': '<span class="file-icon tf" style="color:#5c4ee5;"><i class="fas fa-cube"></i></span>',
     'projects': '<span class="file-icon yml"><i class="fab fa-docker"></i></span>',
-    'certs': '<span class="file-icon pem"><i class="fas fa-certificate"></i></span>',
-    'contact': '<span class="file-icon env"><i class="fas fa-cog"></i></span>'
+    'certs': '<span class="file-icon pem" style="color:#fabd2f;"><i class="fas fa-certificate"></i></span>',
+    'contact': '<span class="file-icon env"><i class="fas fa-cog"></i></span>',
+    'contact-form': '<span class="file-icon env"><i class="fas fa-envelope"></i></span>'
 };
 
 const fileExtensions = {
@@ -89,7 +101,8 @@ const fileExtensions = {
     'skills': 'skills.tf',
     'projects': 'projects.yml',
     'certs': 'certs.pem',
-    'contact': 'contact.env'
+    'contact': 'contact.env',
+    'contact-form': 'contact.form'
 };
 
 let openTabs = ['home'];
@@ -256,19 +269,27 @@ function startTerminalAnimation() {
         '<div class="code-line"><span class="orange">/_/ |_|\\__, /_/\\___/ /_/ |_/_/_/ /_/ /_/  </span></div>',
         '<div class="code-line"><span class="orange">      /____/                              </span></div>',
         '<div class="code-line"><br></div>',
-        '<div class="code-line"><span class="green">[OK]</span> Kernel loaded.</div>',
-        '<div class="code-line"><span class="green">[OK]</span> Checking file systems...</div>',
-        '<div class="code-line"><span class="green">[OK]</span> Mounted /home/kylekim1223</div>',
-        '<div class="code-line"><span class="blue">[INFO]</span> Initializing Cloud Environment...</div>',
-        '<div class="code-line"><span class="blue">[INFO]</span> Establishing secure connection to AWS...</div>',
-        '<div class="code-line"><span class="blue">[INFO]</span> Provisioning DevOps Pipeline...</div>',
-        '<div class="code-line"><span class="green">[OK]</span> DevSecOps policies applied successfully.</div>',
+        '<div class="code-line"><span class="green">[OK]</span> <span class="lang-en">Kernel loaded.</span><span class="lang-ko">커널 로드 완료.</span></div>',
+        '<div class="code-line"><span class="green">[OK]</span> <span class="lang-en">Checking file systems...</span><span class="lang-ko">파일 시스템 확인 중...</span></div>',
+        '<div class="code-line"><span class="green">[OK]</span> <span class="lang-en">Mounted /home/kylekim1223</span><span class="lang-ko">/home/kylekim1223 마운트 완료.</span></div>',
+        '<div class="code-line"><span class="blue">[INFO]</span> <span class="lang-en">Initializing Cloud Environment...</span><span class="lang-ko">클라우드 환경 초기화 중...</span></div>',
+        '<div class="code-line"><span class="blue">[INFO]</span> <span class="lang-en">Establishing secure connection to AWS...</span><span class="lang-ko">AWS 보안 연결 설정 중...</span></div>',
+        '<div class="code-line"><span class="blue">[INFO]</span> <span class="lang-en">Provisioning DevOps Pipeline...</span><span class="lang-ko">DevOps 파이프라인 프로비저닝 중...</span></div>',
+        '<div class="code-line"><span class="green">[OK]</span> <span class="lang-en">DevSecOps policies applied successfully.</span><span class="lang-ko">DevSecOps 정책 적용 성공.</span></div>',
         '<div class="code-line"><br></div>',
-        '<div class="code-line"><span class="green">kylekim@portfolio</span><span class="fg_muted">:</span><span class="blue">~</span><span class="fg"> $</span> ./whoami.sh</div>',
-        '<div class="code-line"><span class="fg_muted">Booting up profile...</span></div>',
-        '<div class="code-line"><span class="green">-></span> Name: <span class="lang-en">Kyle Yongkyun Kim</span><span class="lang-ko">김용균</span></div>',
-        '<div class="code-line"><span class="green">-></span> Role: Cloud & DevSecOps Engineer</div>',
-        '<div class="code-line"><span class="green">-></span> Status: Ready to build and automate.</div>',
+        '<div class="code-line"><span class="green">kylekim@portfolio</span><span class="fg_muted">:</span><span class="blue">~</span><span class="fg"> $</span> tree .</div>',
+        '<div class="code-line"><span class="blue">.</span></div>',
+        '<div class="code-line">├── <span class="green">whoami.sh</span>       <span class="fg_muted"># <span class="lang-en">Self-introduction script</span><span class="lang-ko">자기소개 스크립트</span></span></div>',
+        '<div class="code-line">├── <span class="purple">skills.tf</span>       <span class="fg_muted"># <span class="lang-en">My Skills</span><span class="lang-ko">보유 기술</span></span></div>',
+        '<div class="code-line">├── <span class="blue">projects.yml</span>   <span class="fg_muted"># <span class="lang-en">Project definitions</span><span class="lang-ko">프로젝트 정의</span></span></div>',
+        '<div class="code-line">├── <span class="yellow">certs.pem</span>      <span class="fg_muted"># <span class="lang-en">Certificates</span><span class="lang-ko">보유 자격증 검증서</span></span></div>',
+        '<div class="code-line">└── <span class="orange">contact.env</span>    <span class="fg_muted"># <span class="lang-en">Contact info</span><span class="lang-ko">연락처 환경변수</span></span></div>',
+        '<div class="code-line"><br></div>',
+        '<div class="code-line"><span class="green">kylekim@portfolio</span><span class="fg_muted">:</span><span class="blue">~</span><span class="fg"> $</span> hostnamectl </div>',
+        '<div class="code-line"><span class="fg_muted"><span class="lang-en">Booting up profile...</span><span class="lang-ko">프로필 부팅 중...</span></span></div>',
+        '<div class="code-line"><span class="green">-></span> <span class="lang-en">Name: </span><span class="lang-ko">이름: </span><span class="lang-en">Kyle Yongkyun Kim</span><span class="lang-ko">김용균</span></div>',
+        '<div class="code-line"><span class="green">-></span> <span class="lang-en">Role: Cloud & DevSecOps Engineer</span><span class="lang-ko">역할: Cloud & DevSecOps 엔지니어</span></div>',
+        '<div class="code-line"><span class="green">-></span> <span class="lang-en">Status: Ready to build and automate.</span><span class="lang-ko">상태: 구축 및 자동화 준비 완료.</span></div>',
         '<div class="code-line"><br></div>',
         '<div class="code-line"><span class="green">kylekim@portfolio</span><span class="fg_muted">:</span><span class="blue">~</span><span class="fg"> $</span> <span class="terminal-cursor"></span></div>'
     ];
@@ -285,9 +306,11 @@ function startTerminalAnimation() {
 
             let delay = Math.random() * 40 + 20; // fast typing
             if (i === 6) delay = 400; // pause after banner
-            if (i > 6 && i < 15) delay = 150 + Math.random() * 150; // pause for logs
-            if (i === 15) delay = 500; // pause before whoami
-            if (i === 16) delay = 300;
+            if (i > 6 && i < 15) delay = 150 + Math.random() * 100; // pause for logs
+            if (i === 16) delay = 500; // pause before tree output
+            if (i > 16 && i < 23) delay = 40; // fast tree output
+            if (i === 24) delay = 700; // pause before whoami output
+            if (i === 25) delay = 400; // after Booting up...
 
             setTimeout(printNextLine, delay);
         }

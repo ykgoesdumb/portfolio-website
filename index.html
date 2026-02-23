@@ -41,14 +41,26 @@
         <nav class="activity-bar">
             <div class="top-icons">
                 <div class="icon active" onclick="toggleSidebar()" title="Explorer"><i class="far fa-copy"></i></div>
-                <div class="icon" title="Search"><i class="fas fa-search"></i></div>
+                <div class="icon lang-en" title="Contact Form"
+                    onclick="openFile('contact-form', document.querySelector('.file-list li[onclick*=\'contact-form\']'))">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="icon lang-ko" title="문의 양식"
+                    onclick="openFile('contact-form', document.querySelector('.file-list li[onclick*=\'contact-form\']'))">
+                    <i class="fas fa-envelope"></i>
+                </div>
                 <a href="https://github.com/ykgoesdumb" target="_blank" class="icon" title="Source Control"
                     style="color:inherit; text-decoration:none;"><i class="fas fa-code-branch"></i></a>
                 <a href="https://velog.io/@ykgoesdumb/posts" target="_blank" class="icon" title="Blog"
                     style="color:inherit; text-decoration:none;"><i class="fas fa-blog"></i></a>
             </div>
             <div class="bottom-icons">
-                <div class="icon" title="Accounts"><i class="far fa-user-circle"></i></div>
+                <div class="icon lang-en" title="Profile"
+                    onclick="openFile('whoami', document.querySelector('.file-list li[onclick*=\'whoami\']'))"><i
+                        class="far fa-user-circle"></i></div>
+                <div class="icon lang-ko" title="프로필"
+                    onclick="openFile('whoami', document.querySelector('.file-list li[onclick*=\'whoami\']'))"><i
+                        class="far fa-user-circle"></i></div>
                 <div class="icon" title="Settings" onclick="toggleSettings()"><i class="fas fa-cog"></i></div>
             </div>
         </nav>
@@ -93,6 +105,9 @@
                     </li>
                     <li class="file-item" onclick="openFile('contact', this)">
                         <span class="file-icon env"><i class="fas fa-cog"></i></span> contact.env
+                    </li>
+                    <li class="file-item" onclick="openFile('contact-form', this)">
+                        <span class="file-icon env"><i class="fas fa-envelope"></i></span> contact.form
                     </li>
                 </ul>
             </div>
@@ -341,7 +356,7 @@
 
                 <!-- projects.yml Content -->
                 <div id="content-projects" class="file-content hidden">
-                    <div class="code-line"><span class="comment"># CI/CD Project Definitions</span>
+                    <div class="code-line"><span class="comment"># Project Definitions</span>
                     </div>
                     <div class="code-line"><span class="keyword">stages</span>:</div>
                     <div class="code-line"> - <span class="string">security_scan</span></div>
@@ -494,6 +509,39 @@
                             Korea"</span></div>
                     <div class="code-line"><span class="variable">AVAILABILITY</span>=<span class="string">"Open to
                             opportunities"</span></div>
+                </div>
+
+                <!-- contact.form Content -->
+                <div id="content-contact-form" class="file-content hidden">
+                    <div class="contact-form-container">
+                        <h2 class="lang-en">Fill out this form</h2>
+                        <h2 class="lang-ko">문의 양식 작성</h2>
+                        <p class="lang-en">I'll get back to you as soon as possible.</p>
+                        <p class="lang-ko">최대한 빨리 연락드리겠습니다.</p>
+
+                        <form id="portfolio-contact-form">
+                            <div class="form-group">
+                                <label for="form-name" class="lang-en">Name</label>
+                                <label for="form-name" class="lang-ko">이름</label>
+                                <input type="text" id="form-name" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-email" class="lang-en">Email</label>
+                                <label for="form-email" class="lang-ko">이메일</label>
+                                <input type="email" id="form-email" name="email" placeholder="your@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-message" class="lang-en">Message</label>
+                                <label for="form-message" class="lang-ko">메시지</label>
+                                <textarea id="form-message" name="message" rows="5" placeholder="How can I help you?"
+                                    required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                <span class="lang-en">Send Message</span>
+                                <span class="lang-ko">메시지 보내기</span>
+                            </button>
+                        </form>
+                    </div>
                 </div>
 
             </div>

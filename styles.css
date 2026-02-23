@@ -51,8 +51,8 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    font-size: 15px;
-    /* Increased from default */
+    font-size: 19px;
+    /* Increased from 15px */
 }
 
 a.string {
@@ -455,7 +455,7 @@ body.lang-en .lang-ko {
     padding: 20px;
     overflow-y: auto;
     font-family: 'Fira Code', monospace;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 1.6;
 }
 
@@ -478,7 +478,7 @@ body.lang-en .lang-ko {
     white-space: normal;
     word-break: break-word;
     counter-increment: line;
-    font-size: 14px;
+    font-size: 18px;
     /* Increased code font size */
     line-height: 1.6;
 }
@@ -647,4 +647,76 @@ body.lang-en .lang-ko {
         font-size: 13px;
         padding: 10px;
     }
+}
+
+/* Contact Form Styles */
+.contact-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--bg1);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.contact-form-container h2 {
+    margin-bottom: 5px;
+    color: var(--orange);
+}
+
+.contact-form-container p {
+    margin-bottom: 20px;
+    color: var(--fg_muted);
+    font-size: 16px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--aqua);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px;
+    background-color: var(--bg0);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--fg);
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--orange);
+}
+
+.submit-btn {
+    padding: 12px 24px;
+    background-color: var(--green);
+    color: var(--bg0);
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: filter 0.2s;
+}
+
+.submit-btn:hover {
+    filter: brightness(1.1);
+}
+
+/* Response for Bright Theme Adjustments */
+body.theme-bright .submit-btn {
+    color: #fff;
 }
