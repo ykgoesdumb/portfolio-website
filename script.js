@@ -82,7 +82,7 @@ const fileTypes = {
     'projects': 'YAML',
     'certs': 'PEM',
     'contact': 'Environment Variables',
-    'contact-form': 'Contact Form'
+    'mailme': 'Markdown'
 };
 
 const fileIcons = {
@@ -92,7 +92,7 @@ const fileIcons = {
     'projects': '<span class="file-icon yml"><i class="fab fa-docker"></i></span>',
     'certs': '<span class="file-icon pem" style="color:#fabd2f;"><i class="fas fa-certificate"></i></span>',
     'contact': '<span class="file-icon env"><i class="fas fa-cog"></i></span>',
-    'contact-form': '<span class="file-icon env"><i class="fas fa-envelope"></i></span>'
+    'mailme': '<span class="file-icon md" style="color:#83a598;"><i class="fas fa-file-alt"></i></span>'
 };
 
 const fileExtensions = {
@@ -102,7 +102,7 @@ const fileExtensions = {
     'projects': 'projects.yml',
     'certs': 'certs.pem',
     'contact': 'contact.env',
-    'contact-form': 'contact.form'
+    'mailme': 'MAILME.md'
 };
 
 let openTabs = ['home'];

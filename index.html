@@ -42,11 +42,11 @@
             <div class="top-icons">
                 <div class="icon active" onclick="toggleSidebar()" title="Explorer"><i class="far fa-copy"></i></div>
                 <div class="icon lang-en" title="Contact Form"
-                    onclick="openFile('contact-form', document.querySelector('.file-list li[onclick*=\'contact-form\']'))">
+                    onclick="openFile('mailme', document.querySelector('.file-list li[onclick*=\'mailme\']'))">
                     <i class="fas fa-envelope"></i>
                 </div>
                 <div class="icon lang-ko" title="문의 양식"
-                    onclick="openFile('contact-form', document.querySelector('.file-list li[onclick*=\'contact-form\']'))">
+                    onclick="openFile('mailme', document.querySelector('.file-list li[onclick*=\'mailme\']'))">
                     <i class="fas fa-envelope"></i>
                 </div>
                 <a href="https://github.com/ykgoesdumb" target="_blank" class="icon" title="Source Control"
@@ -106,8 +106,9 @@
                     <li class="file-item" onclick="openFile('contact', this)">
                         <span class="file-icon env"><i class="fas fa-cog"></i></span> contact.env
                     </li>
-                    <li class="file-item" onclick="openFile('contact-form', this)">
-                        <span class="file-icon env"><i class="fas fa-envelope"></i></span> contact.form
+                    <li class="file-item" onclick="openFile('mailme', this)">
+                        <span class="file-icon md" style="color:#83a598;"><i class="fas fa-file-alt"></i></span>
+                        MAILME.md
                     </li>
                 </ul>
             </div>
@@ -511,8 +512,8 @@
                             opportunities"</span></div>
                 </div>
 
-                <!-- contact.form Content -->
-                <div id="content-contact-form" class="file-content hidden">
+                <!-- MAILME.md Content -->
+                <div id="content-mailme" class="file-content hidden">
                     <div class="contact-form-container">
                         <h2 class="lang-en">Fill out this form</h2>
                         <h2 class="lang-ko">문의 양식 작성</h2>

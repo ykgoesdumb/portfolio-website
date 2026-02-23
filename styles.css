@@ -683,6 +683,10 @@ body.lang-en .lang-ko {
     color: var(--aqua);
 }
 
+body.theme-dark .form-group label {
+    color: var(--orange);
+}
+
 .form-group input,
 .form-group textarea {
     padding: 12px;
@@ -692,6 +696,19 @@ body.lang-en .lang-ko {
     color: var(--fg);
     font-family: inherit;
     font-size: 16px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+body.theme-dark .form-group input,
+body.theme-dark .form-group textarea {
+    background-color: var(--bg0);
+    color: var(--fg);
+    border: 1px solid var(--border);
+}
+
+body.theme-dark .form-group input::placeholder,
+body.theme-dark .form-group textarea::placeholder {
+    color: var(--fg_muted);
 }
 
 .form-group input:focus,
@@ -709,7 +726,12 @@ body.lang-en .lang-ko {
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: filter 0.2s;
+    transition: background-color 0.2s, filter 0.2s;
+}
+
+body.theme-dark .submit-btn {
+    background-color: var(--orange);
+    color: var(--bg0);
 }
 
 .submit-btn:hover {
