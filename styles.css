@@ -1,0 +1,650 @@
+/* 
+   Gruvbox Dark / American Casual Vintage IDE Theme
+*/
+:root {
+    /* Main Gruvbox Colors */
+    --bg0: #282828;
+    /* Main Background */
+    --bg0_h: #1d2021;
+    /* Hard Background (Sidebar/Activity Bar) */
+    --bg1: #3c3836;
+    /* Hover/Active Item Background */
+    --bg2: #504945;
+    /* Selection Background */
+    --fg: #ebdbb2;
+    /* Main Foreground */
+    --fg_muted: #a89984;
+    /* Muted Foreground (Comments/Inactive) */
+
+    /* Syntax Colors */
+    --red: #cc241d;
+    --green: #b8bb26;
+    --yellow: #fabd2f;
+    --blue: #83a598;
+    --purple: #d3869b;
+    --aqua: #8ec07c;
+    --orange: #fe8019;
+
+    /* UI Specific */
+    --border: #3c3836;
+    --activity-bar-bg: #1d2021;
+    --sidebar-bg: #282828;
+    --tab-bg: #1d2021;
+    --tab-active-bg: #282828;
+    --editor-bg: #282828;
+    --status-bar-bg: #3c3836;
+    --status-bar-fg: #ebdbb2;
+    --tab-fg-inactive: #a89984;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--editor-bg);
+    color: var(--fg);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    /* Increased from default */
+}
+
+a.string {
+    color: var(--green);
+    text-decoration: underline;
+}
+
+a.string:hover {
+    color: var(--yellow);
+}
+
+/* -------------------------------------
+   1. Loading Screen (Space / IDE Provisioning)
+-------------------------------------- */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg0_h);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease;
+}
+
+.space-scene {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 2rem;
+}
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 10% 20%, #ebdbb2 1px, transparent 1px),
+        radial-gradient(circle at 80% 40%, #ebdbb2 1px, transparent 1px),
+        radial-gradient(circle at 40% 80%, #ebdbb2 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: twinkle 4s infinite linear;
+}
+
+.planet {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at 30% 30%, var(--orange), var(--red));
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(254, 128, 25, 0.4);
+}
+
+.orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 140px;
+    height: 140px;
+    border: 1px dashed var(--fg_muted);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: spin 6s linear infinite;
+}
+
+.satellite {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--aqua);
+    font-size: 1.2rem;
+}
+
+@keyframes spin {
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+.loading-content {
+    text-align: center;
+}
+
+.loading-content h1 {
+    font-family: 'Fira Code', monospace;
+    font-size: 1.5rem;
+    color: var(--yellow);
+    margin-bottom: 1rem;
+}
+
+.progress-container {
+    width: 300px;
+    height: 4px;
+    background-color: var(--bg1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 0 auto 1rem;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: var(--green);
+    transition: width 0.1s linear;
+}
+
+.status-text {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    color: var(--fg_muted);
+    margin-bottom: 0.5rem;
+}
+
+.time-remaining {
+    font-size: 0.8rem;
+    color: var(--fg_muted);
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* -------------------------------------
+   2. IDE Layout
+-------------------------------------- */
+#ide-container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    transition: opacity 0.5s ease;
+}
+
+/* Activity Bar */
+.activity-bar {
+    width: 50px;
+    background-color: var(--activity-bar-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    z-index: 10;
+}
+
+.activity-bar .icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--fg_muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.activity-bar .icon:hover,
+.activity-bar .icon.active {
+    color: var(--fg);
+}
+
+.activity-bar .icon.active {
+    border-left: 2px solid var(--orange);
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    transition: width 0.3s ease;
+}
+
+/* Settings Popover */
+.settings-popover {
+    position: absolute;
+    bottom: 50px;
+    left: 60px;
+    background-color: var(--bg1);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 10px;
+    width: 160px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    font-size: 13px;
+    color: var(--fg);
+    display: none;
+}
+
+.settings-popover:not(.hidden) {
+    display: block;
+}
+
+.settings-section {
+    margin-bottom: 15px;
+}
+
+.settings-section:last-child {
+    margin-bottom: 0;
+}
+
+.settings-title {
+    font-weight: 600;
+    color: var(--fg_muted);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+.settings-option {
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.settings-option:hover {
+    background-color: var(--bg2);
+}
+
+.settings-option.active {
+    background-color: var(--orange);
+    color: var(--bg0);
+    font-weight: 600;
+}
+
+/* Language Display Logic */
+body.lang-ko .lang-en {
+    display: none !important;
+}
+
+body.lang-en .lang-ko {
+    display: none !important;
+}
+
+.sidebar.collapsed {
+    width: 0;
+    border-right: none;
+    overflow: hidden;
+}
+
+.sidebar-title {
+    padding: 10px 20px;
+    font-size: 0.75rem;
+    color: var(--fg_muted);
+    letter-spacing: 1px;
+}
+
+.sidebar-section {
+    flex: 1;
+}
+
+.section-header {
+    padding: 5px 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.file-list {
+    list-style: none;
+    margin-top: 5px;
+}
+
+.file-item {
+    padding: 4px 20px 4px 35px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--fg_muted);
+}
+
+.file-item:hover {
+    background-color: var(--bg1);
+    color: var(--fg);
+}
+
+.file-item.active {
+    background-color: var(--bg2);
+    color: var(--fg);
+}
+
+.file-icon.sh {
+    color: var(--green);
+}
+
+.file-icon.tf {
+    color: var(--purple);
+}
+
+.file-icon.yml {
+    color: var(--blue);
+}
+
+.file-icon.pem {
+    color: var(--yellow);
+}
+
+.file-icon.env {
+    color: var(--orange);
+}
+
+/* Main Editor Area */
+.editor-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+/* Tabs */
+.editor-tabs {
+    display: flex;
+    background-color: var(--tab-bg);
+    overflow-x: auto;
+}
+
+.editor-tabs::-webkit-scrollbar {
+    height: 0;
+}
+
+.tab {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    color: var(--tab-fg-inactive);
+    background-color: var(--tab-bg);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-right: 1px solid var(--border);
+    border-top: 1px solid transparent;
+}
+
+.tab.active {
+    background-color: var(--tab-active-bg);
+    color: var(--fg);
+    border-top: 1px solid var(--orange);
+}
+
+.close-icon {
+    font-size: 0.8rem;
+    margin-left: 5px;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.tab:hover .close-icon {
+    opacity: 1;
+}
+
+.tab.active .close-icon {
+    opacity: 1;
+}
+
+.breadcrumbs {
+    padding: 5px 15px;
+    font-size: 0.85rem;
+    color: var(--fg_muted);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Editor Content (Syntax Highlighted Code) */
+.editor-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.file-content {
+    display: none;
+}
+
+.file-content.active {
+    display: block;
+}
+
+/* Syntax Highlighting */
+.cmd-prefix {
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.code-line {
+    display: flex;
+    white-space: normal;
+    word-break: break-word;
+    counter-increment: line;
+    font-size: 14px;
+    /* Increased code font size */
+    line-height: 1.6;
+}
+
+/* Window Controls (Mac Style) */
+.window-controls {
+    display: flex;
+    gap: 8px;
+    padding: 0 15px;
+    align-items: center;
+    margin-left: auto;
+    /* Push to right */
+}
+
+.control-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.control-dot.red {
+    background-color: #ff5f56;
+}
+
+.control-dot.yellow {
+    background-color: #ffbd2e;
+}
+
+.control-dot.green {
+    background-color: #27c93f;
+}
+
+
+.indent {
+    display: inline-block;
+    width: 25px;
+    /* Adjust depending on how wide we want indentation */
+    flex-shrink: 0;
+}
+
+.code-line::before {
+    content: counter(line);
+    display: inline-block;
+    min-width: 30px;
+    margin-right: 15px;
+    color: var(--bg2);
+    text-align: right;
+    user-select: none;
+}
+
+/* Terminal View (No line numbers) */
+.terminal-view .code-line {
+    white-space: pre-wrap;
+}
+
+.terminal-view .code-line::before {
+    display: none;
+}
+
+.terminal-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 15px;
+    background-color: var(--fg);
+    animation: blink 1s step-end infinite;
+    vertical-align: middle;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.keyword {
+    color: var(--red);
+}
+
+.string {
+    color: var(--green);
+    text-decoration: none;
+}
+
+.comment {
+    color: var(--fg_muted);
+    font-style: italic;
+}
+
+.variable {
+    color: var(--blue);
+}
+
+.function {
+    color: var(--yellow);
+}
+
+.property {
+    color: var(--aqua);
+}
+
+.operator {
+    color: var(--orange);
+}
+
+.number {
+    color: var(--purple);
+}
+
+.orange {
+    color: var(--orange);
+}
+
+.purple {
+    color: var(--purple);
+}
+
+/* Status Bar */
+.status-bar {
+    height: 25px;
+    background-color: var(--status-bar-bg);
+    color: var(--status-bar-fg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    padding: 0 10px;
+    z-index: 10;
+}
+
+.status-bar.hidden {
+    display: none;
+}
+
+.status-left,
+.status-right {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.status-item {
+    cursor: pointer;
+}
+
+.status-item:hover {
+    color: #fff;
+}
+
+/* Responsive (Mobile View) */
+@media (max-width: 768px) {
+    .sidebar {
+        position: absolute;
+        height: calc(100vh - 25px);
+        left: 50px;
+        z-index: 5;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .editor-content {
+        font-size: 13px;
+        padding: 10px;
+    }
+}
