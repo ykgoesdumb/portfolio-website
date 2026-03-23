@@ -139,272 +139,395 @@
                 </div>
 
                 <!-- whoami.sh Content -->
-                <div id="content-whoami" class="file-content hidden">
+                <div id="content-whoami" class="file-content hidden text-document">
                     <div class="code-line"><span class="comment">#!/bin/bash</span></div>
-                    <div class="code-line"><span class="comment">#
-                            =========================================================================</span></div>
-                    <div class="code-line"><span class="comment"># IDENTITY_INIT: <span class="lang-en">Kyle Yongkyun
-                                Kim</span><span class="lang-ko">김용균</span></span></div>
-                    <div class="code-line"><span class="comment"># TARGET_ROLE: Cloud / DevSecOps Engineer</span></div>
-                    <div class="code-line"><span class="comment">#
-                            =========================================================================</span></div>
-                    <div class="code-line"></div>
-                    <div class="code-line"><span class="cmd-prefix"><span
-                                class="keyword">set</span>&nbsp;&nbsp;</span>-eo pipefail <span class="comment"># Stop
-                            on error, ensure secure pipeline</span></div>
-                    <div class="code-line"></div>
-                    <div class="code-line"><span class="cmd-prefix"><span
-                                class="keyword">echo</span>&nbsp;&nbsp;</span><span class="string lang-en">"Loading
-                            profile data..."</span><span class="string lang-ko">"프로필
-                            데이터를 불러오는 중..."</span></div>
-                    <div class="code-line"><span class="cmd-prefix"><span
-                                class="function">sleep</span>&nbsp;&nbsp;</span><span class="number">1</span>
+                    <div class="code-line"><span class="blue">cat</span> &lt;&lt; <span class="orange">'EOF'</span></div>
+                    
+                    <div class="profile-document">
+                        <div class="profile-header">
+                            <h1 class="lang-ko">안녕하세요, 4년 차 인프라 엔지니어 김용균입니다.</h1>
+                            <h1 class="lang-en">Hello, I'm Kyle Yongkyun Kim, a 4th-year Infrastructure Engineer.</h1>
+                            <p class="subtitle lang-ko">단순한 구축을 넘어, 비즈니스 가치를 아키텍처로 구현합니다.</p>
+                            <p class="subtitle lang-en">Beyond building—architecting business value.</p>
+                        </div>
+
+                        <div class="profile-section">
+                            <h2 class="lang-ko"><i class="fas fa-route"></i> Career Journey</h2>
+                            <h2 class="lang-en"><i class="fas fa-route"></i> Career Journey</h2>
+                            <p class="lang-ko">데이터 분석 엔지니어로 커리어를 시작해, Airflow와 Spark를 활용한 ETL 파이프라인 구축으로 매일 50GB 이상의 데이터를 처리하는 경험을 쌓았습니다. 이후 Kubernetes를 운영하며 온프레미스 환경에서 클라우드로 이어지는 인프라 전반을 깊이 이해하게 되었고, 자연스럽게 클라우드·DevOps·플랫폼 엔지니어링 영역으로 관심이 확장되었습니다.</p>
+                            <p class="lang-en">Starting as a Data Analysis Engineer, I built robust ETL pipelines with Airflow and Spark, processing over 50GB of data daily. Managing Kubernetes seamlessly naturally transitioned my focus from on-premise infrastructure to the cloud, fueling my passion for scaling architectures, DevOps, and Platform Engineering.</p>
+                        </div>
+
+                        <div class="profile-section">
+                            <h2 class="lang-ko"><i class="fas fa-server"></i> Architecture &amp; Automation</h2>
+                            <h2 class="lang-en"><i class="fas fa-server"></i> Architecture &amp; Automation</h2>
+                            <ul>
+                                <li>
+                                    <span class="lang-ko">현재는 파이프라인 구축을 넘어, <strong>환경 전체를 설계하고 총괄</strong>하는 역할을 맡고 있습니다.</span>
+                                    <span class="lang-en">I oversee and design entire environments beyond mere pipeline construction.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-ko"><strong>IaC 기반 설계:</strong> VPC, Load Balancer, 관리형 DB, Secret Manager 등 인프라 전반을 코드로 정의해 관리합니다.</span>
+                                    <span class="lang-en"><strong>IaC-driven Design:</strong> Defined core infrastructure (VPC, LB, DBs, Secret Manager) as code.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-ko"><strong>CI/CD:</strong> GitHub Actions 기반으로 변경된 서비스만 감지하여 빌드·배포·헬스체크가 자동화되는 워크플로우를 구성했습니다.</span>
+                                    <span class="lang-en"><strong>CI/CD:</strong> Built efficient GitHub Actions workflows for automated targeted builds, deployments, and health checks.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-ko"><strong>비용 및 효율 최적화:</strong> Proxmox 및 VMware 환경을 개선해 장애 대응 시간을 <strong>70% 단축</strong>하고, 자동화를 통해 외부 운영 비용을 <strong>90% 절감</strong>했습니다.</span>
+                                    <span class="lang-en"><strong>Optimization:</strong> Reduced incident response time by <strong>70%</strong> and external operational costs by <strong>90%</strong> via in-house automation.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="profile-section">
+                            <h2 class="lang-ko"><i class="fas fa-shield-alt"></i> Observability &amp; DevSecOps</h2>
+                            <h2 class="lang-en"><i class="fas fa-shield-alt"></i> Observability &amp; DevSecOps</h2>
+                            <ul>
+                                <li>
+                                    <span class="lang-ko">Kubernetes 위에서 Airflow 및 Trino를 운영하며 <strong>Grafana·Prometheus</strong>로 리소스 병목을 파악해 실제 운영 환경을 개선했습니다.</span>
+                                    <span class="lang-en">Managed Airflow and Trino on K8s, resolving resource bottlenecks using <strong>Grafana &amp; Prometheus</strong>.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-ko">장애를 사후 수습하기보다, <strong>구조적으로 안정성을 높이는 방향</strong>을 지향합니다.</span>
+                                    <span class="lang-en">I believe in structural stability over post-incident firefighting.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-ko">보안을 기본으로 한 <strong>DevSecOps</strong> 방법론과, 팀의 아키텍처 원칙을 지키며 자율성을 보장하는 <strong>AI 협업 인프라</strong>에도 깊은 관심을 가지고 있습니다. (AWS CCP, CKA, RHCSA 보유)</span>
+                                    <span class="lang-en">Deeply focused on <strong>DevSecOps</strong> methodologies and <strong>AI Harness Engineering</strong>—designing safe context boundaries for AI-driven development. (Certified AWS CCP, CKA, RHCSA)</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="profile-section">
+                            <h2 class="lang-ko"><i class="fas fa-comments"></i> Communication &amp; Synergy</h2>
+                            <h2 class="lang-en"><i class="fas fa-comments"></i> Communication &amp; Synergy</h2>
+                            <p class="lang-ko">기술적 역량 못지않게 다양한 이해관계자와의 원활한 소통을 중요하게 생각합니다. PM 역할을 병행하며 개발자·운영팀·경영진 사이에서 인프라 이슈를 <strong>각 대상에 맞는 언어로 설명</strong>하며 비즈니스 의사결정의 가교 역할을 해왔습니다.</p>
+                            <p class="lang-en">Beyond technical skills, I value communication. Acting as a PM, I bridge the gap between developers, operations, and management, translating complex infrastructure issues into clear business impact.</p>
+                            <p class="highlight-box lang-ko">
+                                "복잡한 아키텍처를 비즈니스 가치로 풀어내는 커뮤니케이션이 결국 좋은 인프라를 만드는 출발점이라 믿습니다. 인프라 설계부터 자동화, 보안, 운영, 그리고 조직 간 협업까지 <strong>전 영역에서 실질적으로 기여</strong>할 수 있는 엔지니어가 되고자 합니다."
+                            </p>
+                            <p class="highlight-box lang-en">
+                                "Translating complex architecture into business value is the foundation of great infrastructure. From design to automation, security, and operations, I aim to be an engineer who drives tangible business growth."
+                            </p>
+                        </div>
                     </div>
-                    <div class="code-line"></div>
-                    <div class="code-line"><span class="cmd-prefix"><span
-                                class="keyword">echo</span>&nbsp;&nbsp;</span><span class="string">""</span>
-                    </div>
-                    <div class="code-line"><span class="cmd-prefix"><span
-                                class="keyword">echo</span>&nbsp;&nbsp;</span><span class="string lang-en">"👋
-                            Greetings! I'm Kyle, a 4th-year problem solver who bridges the gap between business needs
-                            and scalable infrastructure."</span><span class="string lang-ko">"👋 안녕하세요! 비즈니스 니즈와 확장 가능한
-                            인프라 사이의 간극을 메우는 4년 차 문제 해결사, 김용균입니다."</span></div>
-                    <div class="code-line"><span class="cmd-prefix"><span
-                                class="keyword">echo</span>&nbsp;&nbsp;</span><span class="string">""</span>
-                    </div>
-                    <div class="code-line"></div>
-                    <div class="code-line"><span class="cmd-prefix"><span
-                                class="keyword">echo</span>&nbsp;&nbsp;</span><span class="string lang-en">"[INFO]
-                            Extracting career origin..."</span><span class="string lang-ko">"[INFO] 커리어 기원 추출
-                            중..."</span></div>
-                    <div class="code-line"><span class="cmd-prefix"><span
-                                class="keyword">echo</span>&nbsp;&nbsp;</span><span class="string lang-en">"📊
-                            I initialized my career as a Data Analytic Engineer, building robust ETL pipelines with
-                            Airflow and Spark that processed over 50GB of daily data."</span><span
-                            class="string lang-ko">"📊 데이터 분석 엔지니어로 커리어를 시작하여, Airflow와 Spark를 활용해 매일 50GB 이상의 데이터를 처리하는
-                            견고한 ETL 파이프라인을 구축했습니다."</span></div>
-                    <div class="code-line"></div>
-                    <div class="code-line"><span class="cmd-prefix"><span
-                                class="keyword">echo</span>&nbsp;&nbsp;</span><span class="string lang-en">"[WARN]
-                            Paradigm shift detected: KUBERNETES_ENCOUNTERED"</span><span class="string lang-ko">"[WARN]
-                            패러다임 전환 감지됨: KUBERNETES_ENCOUNTERED"</span></div>
-                    <div class="code-line"><span class="cmd-prefix"><span
-                                class="keyword">echo</span>&nbsp;&nbsp;</span><span class="string lang-en">"⚙️
-                            Everything changed when I met Kubernetes. Deploying and optimizing Trino clusters on K8s
-                            triggered an absolute obsession with Cloud, DevOps, and Platform Engineering."</span><span
-                            class="string lang-ko">"⚙️ Kubernetes를 만나며 모든 것이 바뀌었습니다. 온프레미스 환경에서 K8s 클러스터를 운영하고 최적화하면서
-                            어떠한 기술들이 클라우드로 추상화 되었는지를 파악한 뒤로
-                            클라우드, DevOps, 플랫폼 엔지니어링에 깊이 빠져들게 되었습니다."</span></div>
-                    <div class="code-line"></div>
-                    <div class="code-line"><span class="cmd-prefix"><span
-                                class="keyword">echo</span>&nbsp;&nbsp;</span><span class="string lang-en">"[INFO]
-                            Scaling up to architecture &amp; overall
-                            planning..."</span><span class="string lang-ko">"[INFO] 아키텍처 및 종합 기획으로 스케일업 중..."</span>
-                    </div>
-                    <div class="code-line"><span class="cmd-prefix"><span
-                                class="keyword">echo</span>&nbsp;&nbsp;</span><span class="string lang-en">"💡
-                            Now, I don't just build pipelines; I architect environments. Operating as a PM, I oversee
-                            the full lifecycle of infrastructure and automation."</span><span class="string lang-ko">"💡
-                            이제 저는 단순히 파이프라인을 구축하는 것을 넘어 환경 전체를 아키텍처링합니다. PM으로서 인프라와 자동화의 전체 라이프사이클을 총괄하고 있습니다."</span>
-                    </div>
-                    <div class="code-line"><span class="cmd-prefix"><span
-                                class="keyword">echo</span>&nbsp;&nbsp;</span><span class="string lang-en">"🛠️ By
-                            leveraging Proxmox and VMware, I've optimized resources,
-                            stabilized systems, and slashed incident response times by 70%."</span><span
-                            class="string lang-ko">"🛠️ Proxmox와 VMware를 활용하여 리소스를 최적화하고 시스템을 안정화했으며, 장애 대응 시간을 70%
-                            단축했습니다."</span></div>
-                    <div class="code-line"><span class="cmd-prefix"><span
-                                class="keyword">echo</span>&nbsp;&nbsp;</span><span class="string lang-en">"📉
-                            I also spearheaded the transition to in-house automation, analyzing business logic to cut
-                            external operational costs by a massive 90%."</span><span class="string lang-ko">"📉 또한 비즈니스
-                            로직을 분석하고 인하우스 자동화 전환을 주도하여 외부 운영 비용을 무려 90% 가까이 절감했습니다."</span></div>
-                    <div class="code-line"></div>
-                    <div class="code-line"><span class="cmd-prefix"><span
-                                class="keyword">echo</span>&nbsp;&nbsp;</span><span class="string lang-en">"[INFO]
-                            Scanning current technology trends..."</span><span class="string lang-ko">"[INFO] 최신 기술 트렌드
-                            스캔 중..."</span></div>
-                    <div class="code-line"><span class="cmd-prefix"><span
-                                class="keyword">echo</span>&nbsp;&nbsp;</span><span class="string lang-en">"🔒
-                            In an era of rapid technological shifts, robust security is no longer an afterthought. I am
-                            deeply focused on DevSecOps methodologies to build resilient, zero-trust
-                            systems."</span><span class="string lang-ko">"🔒 급격한 기술 변화의 시대에 강력한 보안은 더 이상 부차적인 요소가 아닙니다.
-                            저는 복원력이 뛰어난 제로 트러스트 시스템을 구축하기 위해 DevSecOps 방법론에 깊이 집중하고 있습니다."</span></div>
-                    <div class="code-line"><span class="cmd-prefix"><span
-                                class="keyword">echo</span>&nbsp;&nbsp;</span><span class="string lang-en">"🤖
-                            Furthermore, I am keenly attentive to the rise of AI Harness Engineering. I am driven by a
-                            passion for creating resilient AI-human collaboration environments where I design precise
-                            context layers and automated guardrails, ensuring that AI-driven development never
-                            compromises the architectural integrity of the system environments."</span><span
-                            class="string lang-ko">"🤖 또한 거대한 AI 트렌드 속에서 AI Harness
-                            Engineering의 중요성에 주목하고 있습니다. AI 에이전트의 자율성이 팀의 아키텍처 원칙을 저해하지 않도록 컨텍스트를 정밀하게 설계하고, 자동화된 검증 체계를
-                            구축하여 지속 가능한 AI 협업 인프라를 만드는 것이 저의 핵심 열정입니다."</span></div>
-                    <div class="code-line"></div>
-                    <div class="code-line"><span class="cmd-prefix"><span
-                                class="keyword">echo</span>&nbsp;&nbsp;</span><span class="string">""</span>
-                    </div>
-                    <div class="code-line"><span class="cmd-prefix"><span
-                                class="keyword">echo</span>&nbsp;&nbsp;</span><span class="string lang-en">"✅
-                            System Ready. All modules loaded successfully."</span><span class="string lang-ko">"✅ 시스템 준비
-                            완료. 모든 모듈이 성공적으로 로드되었습니다."</span></div>
-                    <div class="code-line"><span class="cmd-prefix"><span
-                                class="keyword">echo</span>&nbsp;&nbsp;</span><span class="string lang-en">"🗣️ Consider
-                            me a human API—I seamlessly translate complex technical
-                            architectures into clear business value for diverse stakeholders."</span><span
-                            class="string lang-ko">"🗣️ 저를 Human API라고 생각해 주세요. 복잡한 기술 아키텍처를 다양한 이해관계자를 위한 명확한 비즈니스 가치로
-                            매끄럽게 변환합니다."</span></div>
-                    <div class="code-line"><span class="cmd-prefix"><span
-                                class="keyword">echo</span>&nbsp;&nbsp;</span><span class="string lang-en">"📬
-                            Whether it's architecting resilient cloud platforms, securing pipelines, or strategizing the
-                            next big feature, I'm ready to deploy. Let's execute!"</span><span
-                            class="string lang-ko">"📬 복원력 있는 클라우드 플랫폼 설계, 파이프라인 보안, 새로운 주요 기능에 대한 전략 수립 등 어떤 것이든 배포할
-                            준비가 되어 있습니다. 실행해 봅시다!"</span></div>
+
+                    <div class="code-line"><span class="orange">EOF</span></div>
                 </div>
 
                 <!-- skills.tf Content -->
-                <div id="content-skills" class="file-content hidden">
-                    <div class="code-line"><span class="comment"># HashiCorp Terraform configuration for Kyle's Skills
-                            Library</span></div>
-                    <div class="code-line"><span class="keyword">terraform</span>&nbsp; {</div>
-                    <div class="code-line"><span class="indent"></span><span class="property">required_providers</span>
-                        {</div>
-                    <div class="code-line"><span class="indent"></span><span class="indent"></span><span
-                            class="property">skills</span> = {</div>
-                    <div class="code-line"><span class="indent"></span><span class="indent"></span><span
-                            class="indent"></span><span class="property">source</span> = <span
-                            class="string">"kylekim/skills"</span></div>
-                    <div class="code-line"><span class="indent"></span><span class="indent"></span><span
-                            class="indent"></span><span class="property">version</span> = <span class="string">"~>
-                            4.0"</span></div>
-                    <div class="code-line"><span class="indent"></span><span class="indent"></span>}</div>
-                    <div class="code-line"><span class="indent"></span>}</div>
-                    <div class="code-line">}</div>
-                    <div class="code-line"></div>
-                    <div class="code-line"><span class="keyword">resource</span>&nbsp; <span
-                            class="string lang-en">"skill_programming"</span><span
-                            class="string lang-ko">"프로그래밍_언어"</span> <span
-                            class="string lang-en">"languages"</span><span class="string lang-ko">"언어"</span> {</div>
-                    <div class="code-line"><span class="indent"></span><span class="property">languages</span> = [<span
-                            class="string">"Python"</span>, <span class="string">"Shell Script"</span>, <span
-                            class="string">"Go"</span>]</div>
-                    <div class="code-line">}</div>
-                    <div class="code-line"></div>
-                    <div class="code-line"><span class="keyword">resource</span>&nbsp; <span
-                            class="string lang-en">"skill_iac"</span><span class="string lang-ko">"인프라_자동화_기술"</span>
-                        <span class="string lang-en">"provisioning"</span><span class="string lang-ko">"프로비저닝"</span> {
+                <!-- skills.tf Content -->
+                <div id="content-skills" class="file-content hidden text-document">
+                    <div class="code-line"><span class="blue">terraform</span> <span class="string">state pull</span> | <span class="function">visualize_hcl</span></div>
+                    
+                    <div class="tf-container">
+                        <!-- Terraform Header -->
+                        <div class="tf-header">
+                            <h2><i class="fas fa-cube"></i> Terraform State: kylekim_skills</h2>
+                            <span class="badge tf-badge">Provider: registry.terraform.io</span>
+                        </div>
+                
+                        <div class="tf-grid">
+                            <!-- skill_programming -->
+                            <div class="tf-card">
+                                <div class="tf-card-header">
+                                    <span class="tf-icon"><i class="fas fa-code"></i></span>
+                                    <div class="tf-title">
+                                        <span class="tf-type">resource "skill_programming"</span>
+                                        <span class="tf-name lang-ko">"프로그래밍_언어"</span>
+                                        <span class="tf-name lang-en">"languages"</span>
+                                    </div>
+                                </div>
+                                <div class="tf-card-body">
+                                    <div class="tf-property">
+                                        <span class="tf-key">languages =</span>
+                                        <div class="tf-value-list">
+                                            <span class="tf-val-tag">"Python"</span>
+                                            <span class="tf-val-tag">"Shell Script"</span>
+                                            <span class="tf-val-tag">"Go"</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <!-- skill_iac -->
+                            <div class="tf-card">
+                                <div class="tf-card-header">
+                                    <span class="tf-icon"><i class="fas fa-hammer"></i></span>
+                                    <div class="tf-title">
+                                        <span class="tf-type">resource "skill_iac"</span>
+                                        <span class="tf-name lang-ko">"인프라_자동화_기술"</span>
+                                        <span class="tf-name lang-en">"provisioning"</span>
+                                    </div>
+                                </div>
+                                <div class="tf-card-body">
+                                    <div class="tf-property">
+                                        <span class="tf-key">tools =</span>
+                                        <div class="tf-value-list">
+                                            <span class="tf-val-tag">"Terraform"</span>
+                                            <span class="tf-val-tag">"Ansible"</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                
+                            <!-- skill_virtualization_os -->
+                            <div class="tf-card">
+                                <div class="tf-card-header">
+                                    <span class="tf-icon"><i class="fas fa-server"></i></span>
+                                    <div class="tf-title">
+                                        <span class="tf-type">resource "skill_virtualization_os"</span>
+                                        <span class="tf-name lang-ko">"가상화_&amp;_OS"</span>
+                                        <span class="tf-name lang-en">"platforms"</span>
+                                    </div>
+                                </div>
+                                <div class="tf-card-body">
+                                    <div class="tf-property">
+                                        <span class="tf-key">hypervisors =</span>
+                                        <div class="tf-value-list">
+                                            <span class="tf-val-tag">"Proxmox"</span>
+                                            <span class="tf-val-tag">"KVM"</span>
+                                            <span class="tf-val-tag">"Kube-Virt"</span>
+                                        </div>
+                                    </div>
+                                    <div class="tf-property">
+                                        <span class="tf-key">operating_systems =</span>
+                                        <div class="tf-value-list">
+                                            <span class="tf-val-tag">"Linux Ubuntu"</span>
+                                            <span class="tf-val-tag">"Linux RHEL"</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <!-- skill_data_platform -->
+                            <div class="tf-card">
+                                <div class="tf-card-header">
+                                    <span class="tf-icon"><i class="fas fa-network-wired"></i></span>
+                                    <div class="tf-title">
+                                        <span class="tf-type">resource "skill_data_platform"</span>
+                                        <span class="tf-name lang-ko">"데이터_플랫폼_기술"</span>
+                                        <span class="tf-name lang-en">"big_data"</span>
+                                    </div>
+                                </div>
+                                <div class="tf-card-body">
+                                    <div class="tf-property">
+                                        <span class="tf-key">orchestration =</span>
+                                        <div class="tf-value-list">
+                                            <span class="tf-val-tag">"Airflow"</span>
+                                            <span class="tf-val-tag">"Kafka"</span>
+                                        </div>
+                                    </div>
+                                    <div class="tf-property">
+                                        <span class="tf-key">processing =</span>
+                                        <div class="tf-value-list">
+                                            <span class="tf-val-tag">"Spark"</span>
+                                            <span class="tf-val-tag">"Trino"</span>
+                                        </div>
+                                    </div>
+                                    <div class="tf-property">
+                                        <span class="tf-key">storage =</span>
+                                        <div class="tf-value-list">
+                                            <span class="tf-val-tag">"MinIO"</span>
+                                            <span class="tf-val-tag">"Ceph"</span>
+                                            <span class="tf-val-tag">"S3"</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- skill_database -->
+                            <div class="tf-card">
+                                <div class="tf-card-header">
+                                    <span class="tf-icon"><i class="fas fa-database"></i></span>
+                                    <div class="tf-title">
+                                        <span class="tf-type">resource "skill_database"</span>
+                                        <span class="tf-name lang-ko">"데이터베이스"</span>
+                                        <span class="tf-name lang-en">"databases"</span>
+                                    </div>
+                                </div>
+                                <div class="tf-card-body">
+                                    <div class="tf-property">
+                                        <span class="tf-key">engines =</span>
+                                        <div class="tf-value-list">
+                                            <span class="tf-val-tag">"PostgreSQL"</span>
+                                            <span class="tf-val-tag">"Redis"</span>
+                                            <span class="tf-val-tag">"MongoDB"</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <!-- skill_cloud_native -->
+                            <div class="tf-card">
+                                <div class="tf-card-header">
+                                    <span class="tf-icon"><i class="fab fa-docker"></i></span>
+                                    <div class="tf-title">
+                                        <span class="tf-type">resource "skill_cloud_native"</span>
+                                        <span class="tf-name lang-ko">"클라우드_네이티브_기술"</span>
+                                        <span class="tf-name lang-en">"orchestration"</span>
+                                    </div>
+                                </div>
+                                <div class="tf-card-body">
+                                    <div class="tf-property">
+                                        <span class="tf-key">platforms =</span>
+                                        <div class="tf-value-list">
+                                            <span class="tf-val-tag">"EKS"</span>
+                                            <span class="tf-val-tag">"Kubernetes"</span>
+                                            <span class="tf-val-tag">"Docker"</span>
+                                            <span class="tf-val-tag">"Istio"</span>
+                                            <span class="tf-val-tag">"Cilium"</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                
+                            <!-- skill_automation -->
+                            <div class="tf-card">
+                                <div class="tf-card-header">
+                                    <span class="tf-icon"><i class="fas fa-sync-alt"></i></span>
+                                    <div class="tf-title">
+                                        <span class="tf-type">resource "skill_automation"</span>
+                                        <span class="tf-name lang-ko">"자동화_기술"</span>
+                                        <span class="tf-name lang-en">"ci_cd"</span>
+                                    </div>
+                                </div>
+                                <div class="tf-card-body">
+                                    <div class="tf-property">
+                                        <span class="tf-key">approaches =</span>
+                                        <div class="tf-value-list">
+                                            <span class="tf-val-tag">"DevSecOps"</span>
+                                            <span class="tf-val-tag">"GitOps"</span>
+                                        </div>
+                                    </div>
+                                    <div class="tf-property">
+                                        <span class="tf-key">tools =</span>
+                                        <div class="tf-value-list">
+                                            <span class="tf-val-tag">"GitHub Actions"</span>
+                                            <span class="tf-val-tag">"ArgoCD"</span>
+                                            <span class="tf-val-tag">"Jenkins"</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- skill_network -->
+                            <div class="tf-card">
+                                <div class="tf-card-header">
+                                    <span class="tf-icon"><i class="fas fa-globe"></i></span>
+                                    <div class="tf-title">
+                                        <span class="tf-type">resource "skill_network"</span>
+                                        <span class="tf-name lang-ko">"네트워크_기술"</span>
+                                        <span class="tf-name lang-en">"networking"</span>
+                                    </div>
+                                </div>
+                                <div class="tf-card-body">
+                                    <div class="tf-property">
+                                        <span class="tf-key">tools =</span>
+                                        <div class="tf-value-list">
+                                            <span class="tf-val-tag">"Nginx"</span>
+                                            <span class="tf-val-tag">"Tailscale"</span>
+                                            <span class="tf-val-tag">"Google Cloud Global Load Balancer"</span>
+                                            <span class="tf-val-tag">"Cloud NAT"</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <!-- skill_security -->
+                            <div class="tf-card">
+                                <div class="tf-card-header">
+                                    <span class="tf-icon"><i class="fas fa-shield-alt"></i></span>
+                                    <div class="tf-title">
+                                        <span class="tf-type">resource "skill_security"</span>
+                                        <span class="tf-name lang-ko">"보안_기술"</span>
+                                        <span class="tf-name lang-en">"monitoring"</span>
+                                    </div>
+                                </div>
+                                <div class="tf-card-body">
+                                    <div class="tf-property">
+                                        <span class="tf-key">tools =</span>
+                                        <div class="tf-value-list">
+                                            <span class="tf-val-tag">"Wazuh SIEM"</span>
+                                            <span class="tf-val-tag">"AWS GuardDuty"</span>
+                                            <span class="tf-val-tag">"Prometheus"</span>
+                                            <span class="tf-val-tag">"Grafana"</span>
+                                            <span class="tf-val-tag">"Cloud Armor"</span>
+                                            <span class="tf-val-tag">"Vault"</span>
+                                            <span class="tf-val-tag">"Secret Manager"</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                
+                        </div>
                     </div>
-                    <div class="code-line"><span class="indent"></span><span class="property">tools</span> = [<span
-                            class="string">"Terraform"</span>, <span class="string">"Ansible"</span>]</div>
-                    <div class="code-line"><span class="indent"></span><span class="property">focus</span> = <span
-                            class="string lang-en">"Immutable Infrastructure &amp; Configuration Management"</span><span
-                            class="string lang-ko">"불변 인프라 &amp; 구성 관리"</span></div>
-                    <div class="code-line">}</div>
-                    <div class="code-line"></div>
-                    <div class="code-line"><span class="keyword">resource</span>&nbsp; <span
-                            class="string lang-en">"skill_virtualization"</span><span
-                            class="string lang-ko">"가상화_프로비저닝"</span> <span
-                            class="string lang-en">"platforms"</span><span class="string lang-ko">"플랫폼"</span> {</div>
-                    <div class="code-line"><span class="indent"></span><span class="property">hypervisors</span> =
-                        [<span class="string">"Proxmox"</span>, <span class="string">"KVM"</span>, <span
-                            class="string">"Kube-Virt"</span>]</div>
-                    <div class="code-line">}</div>
-                    <div class="code-line"></div>
-                    <div class="code-line"><span class="keyword">resource</span>&nbsp; <span
-                            class="string lang-en">"skill_data_platform"</span><span
-                            class="string lang-ko">"데이터_플랫폼_기술"</span> <span
-                            class="string lang-en">"big_data"</span><span class="string lang-ko">"빅데이터"</span> {</div>
-                    <div class="code-line"><span class="indent"></span><span class="property">orchestration</span> =
-                        [<span class="string">"Airflow"</span>, <span class="string">"Kafka"</span>]</div>
-                    <div class="code-line"><span class="indent"></span><span class="property">processing</span> = [<span
-                            class="string">"Spark"</span>, <span class="string">"Trino"</span>]</div>
-                    <div class="code-line"><span class="indent"></span><span class="property">storage</span> = [<span
-                            class="string">"PostgreSQL"</span>]</div>
-                    <div class="code-line">}</div>
-                    <div class="code-line"></div>
-                    <div class="code-line"><span class="keyword">resource</span>&nbsp; <span
-                            class="string lang-en">"skill_cloud_native"</span><span
-                            class="string lang-ko">"클라우드_네이티브_기술"</span> <span
-                            class="string lang-en">"orchestration"</span><span class="string lang-ko">"오케스트레이션"</span> {
-                    </div>
-                    <div class="code-line"><span class="indent"></span><span class="property">platforms</span> = [<span
-                            class="string">"EKS"</span>, <span class="string">"Kubernetes"</span>, <span
-                            class="string">"Docker"</span>, <span class="string">"Istio"</span>, <span
-                            class="string">"Cilium"</span>]</div>
-                    <div class="code-line"><span class="indent"></span><span class="property">focus</span> = <span
-                            class="string lang-en">"Scalable Microservices &amp; Secure Pipelines"</span><span
-                            class="string lang-ko">"확장 가능한 마이크로서비스 &amp; 안전한 파이프라인"</span></div>
-                    <div class="code-line">}</div>
-                    <div class="code-line"></div>
-                    <div class="code-line"><span class="keyword">resource</span>&nbsp; <span
-                            class="string lang-en">"skill_automation"</span><span class="string lang-ko">"자동화_기술"</span>
-                        <span class="string lang-en">"ci_cd"</span><span class="string lang-ko">"CI_CD"</span> {
-                    </div>
-                    <div class="code-line"><span class="indent"></span><span class="property">approaches</span> = [<span
-                            class="string">"DevSecOps"</span>, <span class="string">"GitOps"</span>]</div>
-                    <div class="code-line"><span class="indent"></span><span class="property">tools</span> = [<span
-                            class="string">"GitHub Actions"</span>, <span class="string">"ArgoCD"</span>, <span
-                            class="string">"Jenkins"</span>]</div>
-                    <div class="code-line">}</div>
-                    <div class="code-line"></div>
-                    <div class="code-line"><span class="keyword">resource</span>&nbsp; <span
-                            class="string lang-en">"skill_security"</span><span class="string lang-ko">"보안_기술"</span>
-                        <span class="string lang-en">"monitoring"</span><span class="string lang-ko">"모니터링"</span> {
-                    </div>
-                    <div class="code-line"><span class="indent"></span><span class="property">tools</span> = [<span
-                            class="string">"Wazuh SIEM"</span>, <span class="string">"AWS GuardDuty"</span>, <span
-                            class="string">"Prometheus"</span>, <span class="string">"Grafana"</span>]</div>
-                    <div class="code-line">}</div>
                 </div>
 
                 <!-- projects.yml Content -->
-                <div id="content-projects" class="file-content hidden">
-                    <div class="code-line"><span class="comment"># Project Definitions</span>
+                <div id="content-projects" class="file-content hidden text-document">
+                    <div class="code-line"><span class="blue">cat</span> <span class="string">projects.yml</span> | <span class="function">parse_visual</span></div>
+                    
+                    <div class="projects-container">
+                        <!-- Project 1 -->
+                        <div class="project-card">
+                            <div class="project-header">
+                                <h3><i class="fas fa-shield-alt"></i> Self-Managed DevSecOps Platform</h3>
+                                <span class="badge project-badge">GCP &amp; DevSecOps</span>
+                            </div>
+                            <p class="project-desc lang-ko">GCP와 오픈소스를 활용하여 All-in-one DevSecOps 보안 플랫폼을 구축한 프로젝트입니다. Terraform과 Ansible을 통한 IaC 파이프라인으로 2-Tier Caching, Logging, Backup 전략 등 인프라 전 과정을 자동화했습니다.</p>
+                            <p class="project-desc lang-en">Built an all-in-one DevSecOps platform using GCP and open-source tools. Everything is automated via Terraform and Ansible, including 2-tier caching, central logging, and backup workflows.</p>
+                            
+                            <div class="project-tech">
+                                <span class="tech-tag">GCP</span>
+                                <span class="tech-tag">Terraform</span>
+                                <span class="tech-tag">Ansible</span>
+                                <span class="tech-tag">Wazuh</span>
+                                <span class="tech-tag">GitHub Actions</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">Redis</span>
+                            </div>
+                            
+                            <div class="project-links">
+                                <a href="https://github.com/exit8-ktcloud/self-managed-infrastructure" target="_blank" class="btn-link"><i class="fab fa-github"></i> GitHub Repo</a>
+                                <a href="https://drive.google.com/drive/u/0/folders/1CFBoUUis28UFrMOwi_uTi0m_jRtI5yAg" target="_blank" class="btn-link"><i class="fas fa-file-pdf"></i> Presentation PDF</a>
+                                <a href="https://youtu.be/EUB7CBObaXs" target="_blank" class="btn-link youtube-link"><i class="fab fa-youtube"></i> YouTube Demo</a>
+                            </div>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div class="project-card">
+                            <div class="project-header">
+                                <h3><i class="fas fa-dharmachakra"></i> K8S-IDP: Internal Developer Platform</h3>
+                                <span class="badge project-badge">K8s &amp; Platform Engineering</span>
+                            </div>
+                            <p class="project-desc lang-ko">개발자가 인프라의 복잡성을 몰라도 손쉽게 애플리케이션을 배포할 수 있도록 설계된 Kubernetes 기반 내부 개발자 플랫폼(IDP)입니다. Backstage와 GitOps 기반 ArgoCD 등을 통합하여 일관된 개발자 경험을 제공합니다.</p>
+                            <p class="project-desc lang-en">A Kubernetes-based Internal Developer Platform (IDP) designed to abstract infrastructure complexity for developers, integrating Backstage, ArgoCD, and Crossplane for a unified GitOps experience.</p>
+                            
+                            <div class="project-tech">
+                                <span class="tech-tag">Kubernetes</span>
+                                <span class="tech-tag">Backstage</span>
+                                <span class="tech-tag">ArgoCD</span>
+                                <span class="tech-tag">Crossplane</span>
+                                <span class="tech-tag">Dex (SSO)</span>
+                                <span class="tech-tag">Zero Trust</span>
+                            </div>
+                            
+                            <div class="project-links">
+                                <a href="https://github.com/sydk-ktcloud/k8s-idp" target="_blank" class="btn-link"><i class="fab fa-github"></i> GitHub Repo</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="code-line"><span class="keyword">stages</span>:</div>
-                    <div class="code-line"> - <span class="string">security_scan</span></div>
-                    <div class="code-line"> - <span class="string">build</span></div>
-                    <div class="code-line"> - <span class="string">deploy</span></div>
-                    <div class="code-line"></div>
-                    <div class="code-line"><span class="property">project_1</span>:</div>
-                    <div class="code-line"> <span class="property">name</span>: <span class="string">"Lightweight
-                            DevSecOps Platform"</span></div>
-                    <div class="code-line"> <span class="property">collaboration</span>: <span class="string">"KT
-                            Cloud"</span></div>
-                    <div class="code-line"> <span class="property">description</span>: ></div>
-                    <div class="code-line"><span class="string"> Building a lightweight DevSecOps platform and automated
-                        </span></div>
-                    <div class="code-line"><span class="string"> pipeline for fast and secure deployments on KT
-                            Cloud.</span></div>
-                    <div class="code-line"> <span class="property">tech_stack</span>:</div>
-                    <div class="code-line"> - <span class="string">KT Cloud</span></div>
-                    <div class="code-line"> - <span class="string">CI/CD</span></div>
-                    <div class="code-line"> - <span class="string">Security</span></div>
-                    <div class="code-line"> - <span class="string">DevSecOps</span></div>
-                    <div class="code-line"> <span class="property">repository</span>: <span class="string">"<a
-                                href='https://github.com/kylekim1223/devsecops-platform' target='_blank'
-                                class='string'>https://github.com/kylekim1223/devsecops-platform</a>"</span></div>
-                    <div class="code-line"></div>
-                    <div class="code-line"><span class="property">project_2</span>:</div>
-                    <div class="code-line"> <span class="property">name</span>: <span class="string">"OpenClaw &amp;
-                            Home Server Architecture"</span></div>
-                    <div class="code-line"> <span class="property">type</span>: <span class="string">"On-Premise
-                            Infrastructure"</span></div>
-                    <div class="code-line"> <span class="property">description</span>: ></div>
-                    <div class="code-line"><span class="string"> Automated provisioning and management of a personal
-                            home server </span></div>
-                    <div class="code-line"><span class="string"> using Proxmox and Ubuntu bare-metal
-                            architecture.</span></div>
-                    <div class="code-line"> <span class="property">tech_stack</span>:</div>
-                    <div class="code-line"> - <span class="string">Proxmox VE</span></div>
-                    <div class="code-line"> - <span class="string">Ubuntu</span></div>
-                    <div class="code-line"> - <span class="string">Ansible</span></div>
-                    <div class="code-line"> - <span class="string">Infrastructure Automation</span></div>
-                    <div class="code-line"> <span class="property">repository</span>: <span class="string">"<a
-                                href='https://github.com/kylekim1223/openclaw-homelab' target='_blank'
-                                class='string'>https://github.com/kylekim1223/openclaw-homelab</a>"</span></div>
                 </div>
 
                 <!-- certs.pem Content -->
                 <div id="content-certs" class="file-content hidden">
+                    <div class="code-line" style="margin-bottom: 20px;">
+                        <span class="comment"># <i class="fas fa-info-circle"></i> <span class="lang-en">Tip: Click on the base64 key string below to view the certificate PDF.</span><span class="lang-ko">Tip: 하단의 Base64 Key 문자열을 클릭하시면 자격증 원본 PDF를 조회할 수 있습니다.</span></span>
+                    </div>
                     <!-- Cert 1 -->
                     <div class="code-line"><span class="comment">-----BEGIN CERTIFICATE-----</span></div>
                     <div class="code-line"><span class="string">Issuer: Red Hat</span></div>
@@ -454,8 +577,8 @@
                     <div class="code-line"><span class="string">Subject: SQLD (SQL 개발자)</span></div>
                     <div class="code-line"><span class="string">Certification ID: SQLD-045006574</span></div>
                     <div class="code-line"><span class="string">Issued Date: 2022-06-24</span></div>
-                    <div class="code-line"><span class="string">Expiration Date: 2024-06-24</span></div>
-                    <div class="code-line"><span class="string">Status: Expired</span></div>
+                    <div class="code-line"><span class="string">Expiration Date: Permanent</span></div>
+                    <div class="code-line"><span class="string">Status: Active</span></div>
                     <div class="code-line"><a href="#"
                             onclick="openPdfTab('sqld', 'sqld_cert.pdf', 'assets/pdfs/sqld_cert.pdf'); return false;"
                             class="purple" style="text-decoration:none;">bH9w7X...qV7P2rkLxj0T1N2V3x...</a></div>
