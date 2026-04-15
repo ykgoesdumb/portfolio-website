@@ -890,6 +890,7 @@ body.theme-bright .highlight-box {
     font-size: 13px;
     font-weight: 600;
     border: 1px solid var(--border);
+    margin-left: auto;
 }
 
 .project-desc {
